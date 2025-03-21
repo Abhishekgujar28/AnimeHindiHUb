@@ -10,11 +10,8 @@ import {
   IconButton,
   Stack,
 } from '@mui/material';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import RedditIcon from '@mui/icons-material/Reddit';
+import TelegramIcon from '@mui/icons-material/Telegram';
+ 
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,26 +22,14 @@ function Footer() {
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={3}>
             <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', color: '#ffb6c1' }}>
-              YourLie Anime
+              AnimeHindiHub
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               Your ultimate destination for high-quality anime streaming and downloads.
             </Typography>
             <Stack direction="row" spacing={1}>
-              <IconButton size="small" sx={{ color: '#4267B2' }}>
-                <FacebookIcon />
-              </IconButton>
-              <IconButton size="small" sx={{ color: '#1DA1F2' }}>
-                <TwitterIcon />
-              </IconButton>
-              <IconButton size="small" sx={{ color: '#E1306C' }}>
-                <InstagramIcon />
-              </IconButton>
-              <IconButton size="small" sx={{ color: '#FF0000' }}>
-                <YouTubeIcon />
-              </IconButton>
-              <IconButton size="small" sx={{ color: '#FF4500' }}>
-                <RedditIcon />
+              <IconButton size="small" sx={{ color: '#0088cc' }}>
+                <TelegramIcon />
               </IconButton>
             </Stack>
           </Grid>
@@ -117,7 +102,7 @@ function Footer() {
         
         <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="body2" color="text.secondary">
-            © {currentYear} YourLie Anime. All rights reserved.
+            © {currentYear} AnimeHindiHub. All rights reserved.
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Made with ❤️ for anime fans

@@ -281,7 +281,6 @@ function AdminAddAnimePage() {
                   onChange={handleChange}
                   label="Status"
                 >
-                  <MenuItem value="Airing">Airing</MenuItem>
                   <MenuItem value="Completed">Completed</MenuItem>
                   <MenuItem value="Upcoming">Upcoming</MenuItem>
                 </Select>
@@ -488,6 +487,38 @@ function AdminAddAnimePage() {
         >
           Add Episodes
         </Button>
+      </Box>
+      
+      {/* Help section for adding anime after deployment */}
+      <Box mt={8} p={3} sx={{ bgcolor: 'rgba(255, 255, 255, 0.05)', borderRadius: 2 }}>
+        <Typography variant="h6" gutterBottom sx={{ color: '#ffb6c1', fontWeight: 'bold' }}>
+          How to Add Anime After Deployment
+        </Typography>
+        
+        <Typography variant="body2" paragraph>
+          To add anime content after the site is deployed, you have two options:
+        </Typography>
+        
+        <Typography component="div" variant="body2" sx={{ ml: 2, mb: 2 }}>
+          <ol>
+            <li>
+              <strong>Using this Admin Panel:</strong> Fill out the form above and submit. The new anime will be added to the database.
+            </li>
+            <li>
+              <strong>Edit JSON directly:</strong> If you have direct access to the server files, you can:
+              <ul style={{ marginTop: '8px' }}>
+                <li>Navigate to <code>src/data/animeData.json</code></li>
+                <li>Add a new entry to the <code>animeList</code> array following the existing format</li>
+                <li>Make sure to include all required fields: id, title, description, type, episodes, etc.</li>
+                <li>After saving, rebuild/redeploy the application for changes to take effect</li>
+              </ul>
+            </li>
+          </ol>
+        </Typography>
+        
+        <Typography variant="body2" paragraph>
+          <strong>Important:</strong> Always maintain the JSON structure when adding new anime. Make sure each anime has a unique ID and all required fields.
+        </Typography>
       </Box>
     </Container>
   );

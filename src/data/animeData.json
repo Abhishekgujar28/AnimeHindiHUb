@@ -1,0 +1,602 @@
+{
+  "animeList": [
+    {
+      "id": "1",
+      "title": "Attack on Titan",
+      "alternateTitle": "Shingeki no Kyojin",
+      "cover": "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+      "type": "Series",
+      "episodes": 25,
+      "status": "Completed",
+      "year": 2013,
+      "season": "Spring",
+      "genres": ["Action", "Drama", "Fantasy", "Military"],
+      "rating": 8.7,
+      "studios": ["Wit Studio"],
+      "description": "Centuries ago, mankind was slaughtered to near extinction by monstrous humanoid creatures called Titans, forcing humans to hide in fear behind enormous concentric walls. What makes these giants truly terrifying is that their taste for human flesh is not born out of hunger but what appears to be out of pleasure.",
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "To You, in 2000 Years: The Fall of Shiganshina, Part 1",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+          "downloadUrl": "https://example.com/download/aot/ep1",
+          "downloadUrls": {
+            "1080": "https://example.com/download/aot/ep1/1080p",
+            "720": "https://example.com/download/aot/ep1/720p",
+            "480": "https://example.com/download/aot/ep1/480p"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://server1.example.com/aot/ep1",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://server2.example.com/aot/ep1",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://server3.example.com/aot/ep1",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "That Day: The Fall of Shiganshina, Part 2",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+          "downloadUrl": "https://example.com/download/aot/ep2",
+          "downloadUrls": {
+            "1080": "https://example.com/download/aot/ep2/1080p",
+            "720": "https://example.com/download/aot/ep2/720p",
+            "480": "https://example.com/download/aot/ep2/480p"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://server1.example.com/aot/ep2",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://server2.example.com/aot/ep2",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://server3.example.com/aot/ep2",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "A Dim Light Amid Despair: Humanity's Comeback, Part 1",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+          "downloadUrl": "https://example.com/download/aot/ep3",
+          "downloadUrls": {
+            "1080": "https://example.com/download/aot/ep3/1080p",
+            "720": "https://example.com/download/aot/ep3/720p",
+            "480": "https://example.com/download/aot/ep3/480p"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://server1.example.com/aot/ep3",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://server2.example.com/aot/ep3",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://server3.example.com/aot/ep3",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Demon Slayer",
+      "alternateTitle": "Kimetsu no Yaiba",
+      "cover": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+      "type": "Series",
+      "episodes": 26,
+      "status": "Completed",
+      "year": 2019,
+      "season": "Spring",
+      "genres": ["Action", "Fantasy", "Historical", "Supernatural"],
+      "rating": 8.9,
+      "studios": ["ufotable"],
+      "description": "Ever since the death of his father, the burden of supporting the family has fallen upon Tanjirou Kamado's shoulders. Though living impoverished on a remote mountain, the Kamado family are able to enjoy a relatively peaceful and happy life. One day, Tanjirou decides to go down to the local village to make a little money selling charcoal. On his way back, night falls, forcing Tanjirou to take shelter in the house of a strange man, who warns him of the existence of flesh-eating demons that lurk in the woods at night.",
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "Cruelty",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+          "downloadUrl": "https://example.com/download/demonslayer/ep1",
+          "downloadUrls": {
+            "1080": "https://example.com/download/demonslayer/ep1/1080p",
+            "720": "https://example.com/download/demonslayer/ep1/720p",
+            "480": "https://example.com/download/demonslayer/ep1/480p"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://server1.example.com/demonslayer/ep1",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://server2.example.com/demonslayer/ep1",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://server3.example.com/demonslayer/ep1",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Trainer Sakonji Urokodaki",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+          "downloadUrl": "https://example.com/download/demonslayer/ep2",
+          "downloadUrls": {
+            "1080": "https://example.com/download/demonslayer/ep2/1080p",
+            "720": "https://example.com/download/demonslayer/ep2/720p",
+            "480": "https://example.com/download/demonslayer/ep2/480p"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://server1.example.com/demonslayer/ep2",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://server2.example.com/demonslayer/ep2",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://server3.example.com/demonslayer/ep2",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Sabito and Makomo",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+          "downloadUrl": "https://example.com/download/demonslayer/ep3",
+          "downloadUrls": {
+            "1080": "https://example.com/download/demonslayer/ep3/1080p",
+            "720": "https://example.com/download/demonslayer/ep3/720p",
+            "480": "https://example.com/download/demonslayer/ep3/480p"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://server1.example.com/demonslayer/ep3",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://server2.example.com/demonslayer/ep3",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://server3.example.com/demonslayer/ep3",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Spirited Away",
+      "alternateTitle": "Sen to Chihiro no Kamikakushi",
+      "cover": "https://cdn.myanimelist.net/images/anime/6/79597.jpg",
+      "type": "Movie",
+      "episodes": 1,
+      "status": "Completed",
+      "year": 2001,
+      "season": null,
+      "genres": ["Adventure", "Award Winning", "Supernatural", "Drama", "Fantasy"],
+      "rating": 9.1,
+      "studios": ["Studio Ghibli"],
+      "description": "Stubborn, spoiled, and naïve, 10-year-old Chihiro Ogino is less than pleased when she and her parents discover an abandoned amusement park on the way to their new house. Cautiously venturing inside, she realizes that there is more to this place than meets the eye, as strange things begin to happen once dusk falls. Ghostly apparitions and food that turns her parents into pigs are just the start—Chihiro has unwittingly crossed over into the spirit world.",
+      "downloadUrl": "https://example.com/download/spiritedaway",
+      "downloadUrls": {
+        "1080": "https://example.com/download/spiritedaway/1080p",
+        "720": "https://example.com/download/spiritedaway/720p",
+        "480": "https://example.com/download/spiritedaway/480p"
+      },
+      "servers": [
+        {
+          "name": "Server 1",
+          "url": "https://server1.example.com/spiritedaway",
+          "speed": "Fast",
+          "status": "active"
+        },
+        {
+          "name": "Server 2",
+          "url": "https://server2.example.com/spiritedaway",
+          "speed": "Medium",
+          "status": "active"
+        },
+        {
+          "name": "Server 3",
+          "url": "https://server3.example.com/spiritedaway",
+          "speed": "Slow",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Your Name",
+      "alternateTitle": "Kimi no Na wa",
+      "cover": "https://cdn.myanimelist.net/images/anime/5/87048.jpg",
+      "type": "Movie",
+      "episodes": 1,
+      "status": "Completed",
+      "year": 2016,
+      "season": null,
+      "genres": ["Drama", "Romance", "Supernatural"],
+      "rating": 9.0,
+      "studios": ["CoMix Wave Films"],
+      "description": "Mitsuha Miyamizu, a high school girl, yearns to live the life of a boy in the bustling city of Tokyo—a dream that stands in stark contrast to her present life in the countryside. Meanwhile, in the city, Taki Tachibana lives a busy life as a high school student while juggling his part-time job and aspirations for a future in architecture. One day, Mitsuha awakens in a room that is not her own and suddenly finds herself living the dream life in Tokyo—but in Taki's body! Elsewhere, Taki finds himself living Mitsuha's life in the humble countryside.",
+      "downloadUrl": "https://example.com/download/yourname",
+      "downloadUrls": {
+        "1080": "https://example.com/download/yourname/1080p",
+        "720": "https://example.com/download/yourname/720p",
+        "480": "https://example.com/download/yourname/480p"
+      },
+      "servers": [
+        {
+          "name": "Server 1",
+          "url": "https://server1.example.com/yourname",
+          "speed": "Fast",
+          "status": "active"
+        },
+        {
+          "name": "Server 2",
+          "url": "https://server2.example.com/yourname",
+          "speed": "Medium",
+          "status": "active"
+        },
+        {
+          "name": "Server 3",
+          "url": "https://server3.example.com/yourname",
+          "speed": "Slow",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "One Punch Man",
+      "alternateTitle": "Wanpanman",
+      "cover": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+      "type": "Series",
+      "episodes": 12,
+      "status": "Completed",
+      "year": 2015,
+      "season": "Fall",
+      "genres": ["Action", "Comedy", "Sci-Fi", "Supernatural"],
+      "rating": 8.6,
+      "studios": ["Madhouse"],
+      "description": "The seemingly unimpressive Saitama has a rather unique hobby: being a hero. In order to pursue his childhood dream, Saitama relentlessly trained for three years, losing all of his hair in the process. Now, Saitama is incredibly powerful, so much so that no enemy is able to defeat him in battle. In fact, all it takes to defeat evildoers with just one punch has led to an unexpected problem—he is no longer able to enjoy the thrill of battling and has become quite bored.",
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "The Strongest Man",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+          "downloadUrl": "https://example.com/download/opm/ep1"
+        },
+        {
+          "number": 2,
+          "title": "The Lone Cyborg",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+          "downloadUrl": "https://example.com/download/opm/ep2"
+        },
+        {
+          "number": 3,
+          "title": "The Obsessive Scientist",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/12/76049.jpg",
+          "downloadUrl": "https://example.com/download/opm/ep3"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "My Hero Academia",
+      "alternateTitle": "Boku no Hero Academia",
+      "cover": "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+      "type": "Series",
+      "episodes": 13,
+      "status": "Completed",
+      "year": 2016,
+      "season": "Spring",
+      "genres": ["Action", "Comedy", "School", "Shounen", "Super Power"],
+      "rating": 8.2,
+      "studios": ["Bones"],
+      "description": "The appearance of 'quirks,' newly discovered super powers, has been steadily increasing over the years, with 80 percent of humanity possessing various abilities from manipulation of elements to shapeshifting. This leaves the remainder of the world completely powerless, and Izuku Midoriya is one such individual. Since he was a child, the ambitious middle schooler has wanted nothing more than to be a hero.",
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "Izuku Midoriya: Origin",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+          "downloadUrl": "https://example.com/download/mha/ep1"
+        },
+        {
+          "number": 2,
+          "title": "What It Takes to Be a Hero",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+          "downloadUrl": "https://example.com/download/mha/ep2"
+        },
+        {
+          "number": 3,
+          "title": "Roaring Muscles",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+          "downloadUrl": "https://example.com/download/mha/ep3"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Weathering With You",
+      "alternateTitle": "Tenki no Ko",
+      "cover": "https://cdn.myanimelist.net/images/anime/1880/101146.jpg",
+      "type": "Movie",
+      "episodes": 1,
+      "status": "Completed",
+      "year": 2019,
+      "season": null,
+      "genres": ["Drama", "Fantasy", "Romance", "Slice of Life"],
+      "rating": 8.4,
+      "studios": ["CoMix Wave Films"],
+      "description": "Tokyo is currently experiencing rain showers that seem to disrupt the usual pace of everyone living there to no end. Amidst this seemingly eternal downpour arrives the runaway high school student Hodaka Morishima, who struggles to financially support himself—ending up with a job at a small-time publisher. At the same time, the orphaned Hina Amano also strives to find work to sustain herself and her younger brother.",
+      "downloadUrl": "https://example.com/download/weatheringwithyou",
+      "downloadUrls": {
+        "1080": "https://example.com/download/weatheringwithyou/1080p",
+        "720": "https://example.com/download/weatheringwithyou/720p",
+        "480": "https://example.com/download/weatheringwithyou/480p"
+      },
+      "servers": [
+        {
+          "name": "Server 1",
+          "url": "https://server1.example.com/weatheringwithyou",
+          "speed": "Fast",
+          "status": "active"
+        },
+        {
+          "name": "Server 2",
+          "url": "https://server2.example.com/weatheringwithyou",
+          "speed": "Medium",
+          "status": "active"
+        },
+        {
+          "name": "Server 3",
+          "url": "https://server3.example.com/weatheringwithyou",
+          "speed": "Slow",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Death Note",
+      "alternateTitle": "Desu Nōto",
+      "cover": "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+      "type": "Series",
+      "episodes": 37,
+      "status": "Completed",
+      "year": 2006,
+      "season": "Fall",
+      "genres": ["Mystery", "Psychological", "Supernatural", "Thriller"],
+      "rating": 8.7,
+      "studios": ["Madhouse"],
+      "description": "A shinigami, as a god of death, can kill any person—provided they see their victim's face and write their victim's name in a notebook called a Death Note. One day, Ryuk, bored by the shinigami lifestyle and interested in seeing how a human would use a Death Note, drops one into the human realm.",
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "Rebirth",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+          "downloadUrl": "https://example.com/download/deathnote/ep1"
+        },
+        {
+          "number": 2,
+          "title": "Confrontation",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+          "downloadUrl": "https://example.com/download/deathnote/ep2"
+        },
+        {
+          "number": 3,
+          "title": "Dealings",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/9/9453.jpg",
+          "downloadUrl": "https://example.com/download/deathnote/ep3"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Jujutsu Kaisen",
+      "alternateTitle": "Sorcery Fight",
+      "cover": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+      "type": "Series",
+      "episodes": 24,
+      "status": "Completed",
+      "year": 2020,
+      "season": "Fall",
+      "genres": ["Action", "Demons", "Horror", "School", "Supernatural"],
+      "rating": 8.8,
+      "studios": ["MAPPA"],
+      "description": "Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for the strange when he unknowingly encounters a cursed item. Triggering a chain of supernatural occurrences, Yuuji finds himself suddenly thrust into the world of Curses—dreadful beings formed from human malice and negativity.",
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "Ryomen Sukuna",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+          "downloadUrl": "https://example.com/download/jjk/ep1"
+        },
+        {
+          "number": 2,
+          "title": "For Myself",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+          "downloadUrl": "https://example.com/download/jjk/ep2"
+        },
+        {
+          "number": 3,
+          "title": "Girl of Steel",
+          "thumbnail": "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+          "downloadUrl": "https://example.com/download/jjk/ep3"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "A Silent Voice",
+      "alternateTitle": "Koe no Katachi",
+      "cover": "https://cdn.myanimelist.net/images/anime/1122/96435.jpg",
+      "type": "Movie",
+      "episodes": 1,
+      "status": "Completed",
+      "year": 2016,
+      "season": null,
+      "genres": ["Drama", "Award Winning", "School"],
+      "rating": 9.0,
+      "studios": ["Kyoto Animation"],
+      "description": "As a wild youth, elementary school student Shouya Ishida sought to beat boredom in the cruelest ways. When the deaf Shouko Nishimiya transfers into his class, Shouya and the rest of his class thoughtlessly bully her for fun. However, when her mother notifies the school, he is singled out and blamed for everything done to her. With Shouko transferring out of the school, Shouya is left at the mercy of his classmates.",
+      "downloadUrl": "https://example.com/download/asilentvoice",
+      "downloadUrls": {
+        "1080": "https://example.com/download/asilentvoice/1080p",
+        "720": "https://example.com/download/asilentvoice/720p",
+        "480": "https://example.com/download/asilentvoice/480p"
+      },
+      "servers": [
+        {
+          "name": "Server 1",
+          "url": "https://server1.example.com/asilentvoice",
+          "speed": "Fast",
+          "status": "active"
+        },
+        {
+          "name": "Server 2",
+          "url": "https://server2.example.com/asilentvoice",
+          "speed": "Medium",
+          "status": "active"
+        },
+        {
+          "name": "Server 3",
+          "url": "https://server3.example.com/asilentvoice",
+          "speed": "Slow",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "I Eat Your Pancreas",
+      "alternateTitle": "Koe no Katachi",
+      "cover": "https://images.justwatch.com/poster/304708954/s166/i-want-to-eat-your-pancreas.avif",
+      "type": "Movie",
+      "episodes": 1,
+      "status": "Completed",
+      "year": 2018,
+      "season": null,
+      "genres": ["Drama", "Award Winning", "School" , "Romance"],
+      "rating": 9.8,
+      "studios": ["Kyoto Animation"],
+      "description": "An aloof boy comes across a book in a hospital waiting room. He soon discovers that it is a diary kept by his very popular classmate who reveals to him that she is secretly suffering from a fatal pancreatic illness.",
+      "downloadUrl": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70?ep=58336",
+      "downloadUrls": {
+        "1080": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/1080p?ep=58336",
+        "720": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/720p?ep=58336",
+        "480": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/480p?ep=58336"
+      },
+      "servers": [
+        {
+          "name": "Server 1",
+          "url": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/server1?ep=58336",
+          "speed": "Fast",
+          "status": "active"
+        },
+        {
+          "name": "Server 2",
+          "url": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/server2?ep=58336",
+          "speed": "Medium",
+          "status": "active"
+        },
+        {
+          "name": "Server 3",
+          "url": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/server3?ep=58336",
+          "speed": "Slow",
+          "status": "active"
+        }
+      ],
+      "episodesList": [
+        {
+          "number": 1,
+          "title": "I Want to Eat Your Pancreas",
+          "thumbnail": "https://images.justwatch.com/poster/304708954/s166/i-want-to-eat-your-pancreas.avif",
+          "downloadUrl": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70?ep=58336",
+          "downloadUrls": {
+            "1080": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/1080p?ep=58336",
+            "720": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/720p?ep=58336",
+            "480": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/480p?ep=58336"
+          },
+          "servers": [
+            {
+              "name": "Server 1",
+              "url": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/server1?ep=58336",
+              "speed": "Fast",
+              "status": "active"
+            },
+            {
+              "name": "Server 2",
+              "url": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/server2?ep=58336",
+              "speed": "Medium",
+              "status": "active"
+            },
+            {
+              "name": "Server 3",
+              "url": "https://hianime.to/watch/i-want-to-eat-your-pancreas-70/server3?ep=58336",
+              "speed": "Slow",
+              "status": "active"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 

@@ -7,223 +7,361 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Divider,
   List,
   ListItem,
   ListItemText,
   Paper,
+  Button,
+  Avatar,
+  ListItemIcon,
+  IconButton,
 } from '@mui/material';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import InfoIcon from '@mui/icons-material/Info';
+import CodeIcon from '@mui/icons-material/Code';
+import WhatshotIcon from '@mui/icons-material/Whatshot';
+import MovieIcon from '@mui/icons-material/Movie';
+import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import QrCodeIcon from '@mui/icons-material/QrCode';
+import EmailIcon from '@mui/icons-material/Email';
+import InstagramIcon from '@mui/icons-material/Instagram';
+// Replace with actual QR code image path
+const QRCode = "./src/assets/QR.jpg";
 
 function AboutPage() {
-  // Character data
-  const characters = [
-    {
-      name: 'Kousei Arima',
-      role: 'Protagonist',
-      description: 'A former piano prodigy who lost his ability to hear the piano after his mother\'s death.',
-      image: 'https://m.media-amazon.com/images/M/MV5BYzM0ZjlkZTctY2VkYy00ZTY5LWI5ZjgtMDlmZDZiYzQzODYwXkEyXkFqcGdeQXVyNjMxNzQ2NTQ@._V1_.jpg',
-    },
-    {
-      name: 'Kaori Miyazono',
-      role: 'Deuteragonist',
-      description: 'A free-spirited violinist who helps Kousei rediscover his love for music.',
-      image: 'https://m.media-amazon.com/images/M/MV5BYzM0ZjlkZTctY2VkYy00ZTY5LWI5ZjgtMDlmZDZiYzQzODYwXkEyXkFqcGdeQXVyNjMxNzQ2NTQ@._V1_.jpg',
-    },
-    {
-      name: 'Tsubaki Sawabe',
-      role: 'Supporting Character',
-      description: 'Kousei\'s childhood friend who has feelings for him.',
-      image: 'https://m.media-amazon.com/images/M/MV5BYzM0ZjlkZTctY2VkYy00ZTY5LWI5ZjgtMDlmZDZiYzQzODYwXkEyXkFqcGdeQXVyNjMxNzQ2NTQ@._V1_.jpg',
-    },
-    {
-      name: 'Ryota Watari',
-      role: 'Supporting Character',
-      description: 'Kousei\'s friend and a soccer player who Kaori initially pretends to like.',
-      image: 'https://m.media-amazon.com/images/M/MV5BYzM0ZjlkZTctY2VkYy00ZTY5LWI5ZjgtMDlmZDZiYzQzODYwXkEyXkFqcGdeQXVyNjMxNzQ2NTQ@._V1_.jpg',
-    },
-  ];
-
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 4 }}>
-        About Your Lie in April
-      </Typography>
-
-      {/* Hero Section */}
-      <Paper
-        sx={{
-          position: 'relative',
-          backgroundColor: 'grey.800',
-          color: '#fff',
-          mb: 6,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundImage: `url(https://m.media-amazon.com/images/M/MV5BYThlNWY5ZDgtYTIxNC00ZjdiLWJmNGUtMDFjMDlmZTAzOWFiXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg)`,
-          height: '300px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            backgroundColor: 'rgba(0,0,0,.6)',
+    <Box sx={{ bgcolor: '#121212', minHeight: '100vh', py: 5 }}>
+      <Container maxWidth="lg">
+        {/* Hero Section */}
+        <Paper 
+          sx={{ 
+            bgcolor: 'rgba(255,255,255,0.05)', 
+            p: { xs: 3, md: 5 }, 
+            mb: 5,
+            borderRadius: 2,
+            position: 'relative',
+            overflow: 'hidden',
           }}
-        />
-        <Container maxWidth="md" sx={{ position: 'relative', textAlign: 'center' }}>
-          <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-            Your Lie in April
-          </Typography>
-          <Typography variant="h5" color="inherit" paragraph>
-            四月は君の嘘 (Shigatsu wa Kimi no Uso)
-          </Typography>
-        </Container>
-      </Paper>
+        >
+          <Box 
+            sx={{ 
+              position: 'absolute', 
+              top: 0, 
+              right: 0, 
+              width: { xs: '100%', md: '50%' }, 
+              height: '100%',
+              opacity: 0.1,
+              background: 'linear-gradient(135deg, transparent 0%, #ffb6c1 100%)',
+              display: { xs: 'none', md: 'block' },
+            }} 
+          />
+          
+          <Grid container spacing={3} alignItems="center">
+            <Grid item xs={12} md={8}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <InfoIcon sx={{ color: '#ffb6c1', mr: 2, fontSize: 36 }} />
+                <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold' }}>
+                  About Us
+                </Typography>
+              </Box>
+              <Typography variant="h6" color="text.secondary" sx={{ mb: 3 }}>
+                Your ultimate destination for high-quality anime downloads
+              </Typography>
+              <Typography paragraph>
+                AnimeHindiHub was created with a simple mission: to provide anime lovers everywhere with a 
+                convenient and reliable platform to download their favorite anime series and movies in 
+                the highest quality possible with Hindi dubbing.
+              </Typography>
+              <Typography paragraph>
+                What started as a small passion project has grown into a thriving community with thousands 
+                of dedicated users. We're committed to curating the best collection of anime content and 
+                delivering a seamless experience for all anime enthusiasts.
+              </Typography>
+            </Grid>
+          </Grid>
+        </Paper>
 
-      {/* Synopsis Section */}
-      <Box sx={{ mb: 6 }}>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Synopsis
+        {/* Contact Section */}
+        <Box sx={{ mb: 8 }}>
+          <Typography variant="h4" component="h2" sx={{ mb: 4, fontWeight: 'bold', textAlign: 'center' }}>
+            Connect With Us
+          </Typography>
+          <Paper 
+            elevation={3}
+            sx={{ 
+              p: 4, 
+              textAlign: 'center',
+              borderRadius: 2,
+              bgcolor: '#1e1e1e',
+            }}
+          >
+            <Typography variant="body1" paragraph>
+              Have questions or suggestions? We'd love to hear from you!
+            </Typography>
+            
+            <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mb: 4 }}>
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {/* <IconButton
+                  size="large"
+                  sx={{ 
+                    color: '#ffb6c1',
+                    bgcolor: 'rgba(255,182,193,0.1)',
+                    mb: 1,
+                    '&:hover': {
+                      bgcolor: 'rgba(255,182,193,0.2)',
+                    }
+                  }}
+                >
+                  <EmailIcon fontSize="large" />
+                </IconButton> */}
+                {/* <Typography variant="body2">
+                  info@animehindhub.com
+                </Typography> */}
+              </Box>
+              
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <IconButton
+                  href="https://t.me/animehindhub"
+                  target="_blank"
+                  rel="noopener"
+                  size="large"
+                  sx={{ 
+                    color: '#0088cc',
+                    bgcolor: 'rgba(0,136,204,0.1)',
+                    mb: 1,
+                    '&:hover': {
+                      bgcolor: 'rgba(0,136,204,0.2)',
+                    }
+                  }}
+                >
+                  <TelegramIcon fontSize="large" />
+                </IconButton>
+                <Typography variant="body2">
+                  Join our Telegram
+                </Typography>
+              </Box>
+              
+              <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {/* <IconButton
+                  size="large"
+                  sx={{ 
+                    color: '#E1306C',
+                    bgcolor: 'rgba(225,48,108,0.1)',
+                    mb: 1,
+                    '&:hover': {
+                      bgcolor: 'rgba(225,48,108,0.2)',
+                    }
+                  }}
+                >
+                  <InstagramIcon fontSize="large" />
+                </IconButton> */}
+                {/* <Typography variant="body2">
+                  @animehindhub
+                </Typography> */}
+              </Box>
+            </Box>
+            
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              Join our community for updates, discussions, and more!
+            </Typography>
+            
+            <Button
+              variant="contained"
+              href="https://t.me/animehindhub"
+              target="_blank" 
+              rel="noopener"
+              startIcon={<TelegramIcon />}
+              sx={{ 
+                bgcolor: '#0088cc',
+                '&:hover': {
+                  bgcolor: '#0077b5',
+                }
+              }}
+            >
+              Join Our Telegram Channel
+            </Button>
+          </Paper>
+        </Box>
+        
+        {/* Features Section */}
+        <Typography variant="h4" component="h2" sx={{ mb: 4, fontWeight: 'bold' }}>
+          What We Offer
         </Typography>
-        <Typography paragraph>
-          Your Lie in April follows the story of Kousei Arima, a former child prodigy who dominated the world of piano competitions until his mother's sudden death led to a mental breakdown during a recital. As a result, Kousei is no longer able to hear the sound of his piano, even though his hearing is otherwise perfect, and he abandons playing the piano.
-        </Typography>
-        <Typography paragraph>
-          Two years later, Kousei still avoids the piano and lives a colorless life alongside his childhood friends Tsubaki and Watari. However, everything changes when Kousei meets the beautiful violinist Kaori Miyazono, who stirs up his world and sets him on a journey to face music again. Through a series of events, Kaori helps Kousei return to the music world and shows him that music should be played with emotion and feeling, rather than focusing on technical perfection.
-        </Typography>
-        <Typography paragraph>
-          As the story progresses, Kousei learns more about Kaori and discovers her secret, which changes his life forever. The series explores themes of love, loss, music, and the courage to move forward.
-        </Typography>
-      </Box>
-
-      {/* Characters Section */}
-      <Box sx={{ mb: 6 }}>
-        <Typography variant="h5" component="h2" gutterBottom sx={{ mb: 3 }}>
-          Main Characters
-        </Typography>
-        <Grid container spacing={3}>
-          {characters.map((character) => (
-            <Grid item key={character.name} xs={12} sm={6} md={3}>
-              <Card
-                sx={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  transition: '0.3s',
-                  '&:hover': {
-                    transform: 'translateY(-5px)',
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.2)',
-                  },
+        
+        <Grid container spacing={3} sx={{ mb: 6 }}>
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ bgcolor: 'rgba(255,255,255,0.05)', height: '100%' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <Avatar sx={{ bgcolor: '#ffb6c1', mr: 2 }}>
+                    <LocalMoviesIcon />
+                  </Avatar>
+                  <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
+                    Vast Library
+                  </Typography>
+                </Box>
+                <Typography variant="body2" color="text.secondary">
+                  Access thousands of anime titles from classics to the latest releases, all in one place.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ bgcolor: 'rgba(255,255,255,0.05)', height: '100%' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <Avatar sx={{ bgcolor: '#3f51b5', mr: 2 }}>
+                    <CloudDownloadIcon />
+                  </Avatar>
+                  <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
+                    Quality Downloads
+                  </Typography>
+                </Box>
+                <Typography variant="body2" color="text.secondary">
+                  Enjoy your favorite anime in high definition with multiple quality options up to 1080p.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          
+          <Grid item xs={12} sm={6} md={4}>
+            <Card sx={{ bgcolor: 'rgba(255,255,255,0.05)', height: '100%' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <Avatar sx={{ bgcolor: '#e91e63', mr: 2 }}>
+                    <WhatshotIcon />
+                  </Avatar>
+                  <Typography variant="h6" component="h3" sx={{ fontWeight: 'bold' }}>
+                    Latest Releases
+                  </Typography>
+                </Box>
+                <Typography variant="body2" color="text.secondary">
+                  Stay up-to-date with the newest anime releases, updated regularly to bring you fresh content.
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+        
+        {/* Donation Section */}
+        <Paper 
+          sx={{ 
+            bgcolor: 'rgba(255,255,255,0.05)', 
+            p: 4, 
+            mb: 4, 
+            borderRadius: 2,
+            background: 'linear-gradient(145deg, rgba(255,182,193,0.1) 0%, rgba(255,255,255,0.05) 100%)',
+          }}
+        >
+          <Grid container spacing={4} alignItems="center">
+            <Grid item xs={12} md={7}>
+              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                <QrCodeIcon sx={{ color: '#ffb6c1', mr: 2, fontSize: 36 }} />
+                <Typography variant="h4" component="h2" sx={{ fontWeight: 'bold' }}>
+                  Support Our Project
+                </Typography>
+              </Box>
+              
+              <Typography paragraph sx={{ mb: 3 }}>
+                AnimeHindiHub is maintained by a small team of passionate anime enthusiasts. We're committed to keeping 
+                this platform ad-free and accessible to everyone. Your donations help us cover server costs, 
+                development expenses, and enable us to add more content and features.
+              </Typography>
+              
+              <List>
+                <ListItem>
+                  <ListItemIcon>
+                    <MovieIcon sx={{ color: '#e91e63' }} />
+                  </ListItemIcon>
+                  <ListItemText 
+                    primary="Keep the servers running" 
+                    secondary="Hosting thousands of high-quality anime files requires significant server resources"
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CodeIcon sx={{ color: '#e91e63' }} />
+                  </ListItemIcon>
+                  <ListItemText 
+                    primary="Support new features" 
+                    secondary="Help us develop new features like mobile apps, better recommendation systems, and more"
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CloudDownloadIcon sx={{ color: '#e91e63' }} />
+                  </ListItemIcon>
+                  <ListItemText 
+                    primary="Expand our collection" 
+                    secondary="Your support helps us add more anime titles and keep our library up-to-date"
+                  />
+                </ListItem>
+              </List>
+            </Grid>
+            
+            <Grid item xs={12} md={5} sx={{ textAlign: 'center' }}>
+              <Card 
+                sx={{ 
+                  maxWidth: 280, 
+                  mx: 'auto', 
+                  bgcolor: 'white', 
+                  p: 2, 
+                  boxShadow: 3,
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
               >
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={character.image}
-                  alt={character.name}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {character.name}
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    image={QRCode}
+                    alt="Donation QR Code"
+                    sx={{ width: '100%', height: 'auto' }}
+                  />
+                  
+                  <Box 
+                    sx={{ 
+                      position: 'absolute', 
+                      top: 0, 
+                      left: 0, 
+                      width: '100%', 
+                      height: '100%', 
+                      bgcolor: 'rgba(255,255,255,0.1)', 
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <QrCodeIcon sx={{ fontSize: 60, color: 'rgba(0,0,0,0.1)' }} />
+                  </Box>
+                </Box>
+                
+                <Box sx={{ mt: 2, textAlign: 'center' }}>
+                  <Typography variant="subtitle1" sx={{ color: '#000', fontWeight: 'bold' }}>
+                    Scan to Donate
                   </Typography>
-                  <Typography variant="subtitle2" color="text.secondary" gutterBottom>
-                    {character.role}
+                  <Typography variant="body2" sx={{ color: 'rgba(0,0,0,0.7)', mt: 0.5 }}>
+                    Thank you for your support!
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {character.description}
-                  </Typography>
-                </CardContent>
+                </Box>
               </Card>
             </Grid>
-          ))}
-        </Grid>
-      </Box>
-
-      {/* Production Info Section */}
-      <Box sx={{ mb: 6 }}>
-        <Typography variant="h5" component="h2" gutterBottom>
-          Production Information
-        </Typography>
-        <Divider sx={{ mb: 3 }} />
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <List>
-              <ListItem divider>
-                <ListItemText
-                  primary="Original Work"
-                  secondary="Manga by Naoshi Arakawa"
-                />
-              </ListItem>
-              <ListItem divider>
-                <ListItemText
-                  primary="Studio"
-                  secondary="A-1 Pictures"
-                />
-              </ListItem>
-              <ListItem divider>
-                <ListItemText
-                  primary="Director"
-                  secondary="Kyohei Ishiguro"
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary="Music"
-                  secondary="Masaru Yokoyama"
-                />
-              </ListItem>
-            </List>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <List>
-              <ListItem divider>
-                <ListItemText
-                  primary="Episodes"
-                  secondary="22 + 1 OVA"
-                />
-              </ListItem>
-              <ListItem divider>
-                <ListItemText
-                  primary="Aired"
-                  secondary="October 2014 - March 2015"
-                />
-              </ListItem>
-              <ListItem divider>
-                <ListItemText
-                  primary="Genres"
-                  secondary="Drama, Music, Romance, School, Shounen"
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemText
-                  primary="Rating"
-                  secondary="8.87/10 (MyAnimeList)"
-                />
-              </ListItem>
-            </List>
-          </Grid>
-        </Grid>
-      </Box>
-
-      {/* Disclaimer Section */}
-      <Box sx={{ bgcolor: 'background.paper', p: 3, borderRadius: 1 }}>
-        <Typography variant="h6" gutterBottom>
-          Disclaimer
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          This website is created for educational purposes only. All content, images, and information related to "Your Lie in April" are the property of their respective owners. We do not claim ownership of any copyrighted material.
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-          "Your Lie in April" (四月は君の嘘, Shigatsu wa Kimi no Uso) is a manga series written and illustrated by Naoshi Arakawa, and the anime adaptation was produced by A-1 Pictures.
-        </Typography>
-      </Box>
-    </Container>
+        </Paper>
+        
+        {/* Thank You Note */}
+        <Box sx={{ textAlign: 'center', py: 3 }}>
+          <Typography variant="h6" component="p" gutterBottom>
+            Thank You For Being Part Of Our Community!
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            We're constantly working to improve AnimeHindiHub and provide you with the best anime download experience.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 }
 

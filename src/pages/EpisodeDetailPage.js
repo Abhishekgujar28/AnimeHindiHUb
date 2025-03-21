@@ -44,6 +44,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import StarIcon from '@mui/icons-material/Star';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
+import VideocamIcon from '@mui/icons-material/Videocam';
 
 // Mock data for episodes
 const allEpisodes = [
@@ -677,36 +678,42 @@ function EpisodeDetailPage() {
             </Card>
 
             {/* Related Episodes */}
-            <Paper sx={{ p: 2, borderRadius: 2, mb: 4, boxShadow: '0 2px 10px rgba(0,0,0,0.3)', bgcolor: '#1e1e1e', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', pb: 1, borderBottom: '2px solid #ffb6c1', color: '#ffb6c1' }}>
-                Related Episodes
+            <Paper sx={{ p: 2, mb: 4, borderRadius: 2, overflow: 'hidden', boxShadow: '0 2px 10px rgba(0,0,0,0.3)', bgcolor: '#1e1e1e', border: '1px solid rgba(255,255,255,0.05)' }}>
+              <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold', display: 'flex', alignItems: 'center' }}>
+                <VideocamIcon sx={{ mr: 1, color: '#ffb6c1' }} />
+                More Episodes
               </Typography>
-              <Stack spacing={2} sx={{ mt: 2 }}>
+              <Stack spacing={1}>
                 {relatedEpisodes.map((relEpisode) => (
                   <Card
                     key={relEpisode.id}
-                    sx={{
+                    component={RouterLink}
+                    to={`/episode/${relEpisode.id}`}
+                    sx={{ 
                       display: 'flex',
-                      transition: '0.3s',
-                      borderRadius: 2,
+                      borderRadius: 1,
                       overflow: 'hidden',
                       bgcolor: '#272727',
-                      boxShadow: '0 1px 4px rgba(0,0,0,0.3)',
-                      border: '1px solid rgba(255,255,255,0.05)',
+                      textDecoration: 'none',
                       '&:hover': {
-                        transform: 'translateY(-3px)',
-                        boxShadow: '0 4px 8px rgba(0,0,0,0.4)',
+                        bgcolor: '#323232',
                       },
                     }}
-                    component={RouterLink}
-                    to={`/episodes/${relEpisode.id}`}
                   >
-                    <CardMedia
-                      component="img"
-                      sx={{ width: 100 }}
-                      image={relEpisode.image}
-                      alt={relEpisode.title}
-                    />
+                    <Box
+                      sx={{
+                        width: 80,
+                        minWidth: 80,
+                        position: 'relative',
+                      }}
+                    >
+                      <Box component="img" src={relEpisode.thumbnail} alt={relEpisode.title} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <Box sx={{ position: 'absolute', bottom: 0, left: 0, right: 0, p: 0.5, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)', textAlign: 'center' }}>
+                        <Typography variant="caption" sx={{ color: 'white', fontSize: '0.65rem' }}>
+                          EP {relEpisode.number}
+                        </Typography>
+                      </Box>
+                    </Box>
                     <Box sx={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                       <CardContent sx={{ flex: '1 0 auto', py: 1 }}>
                         <Typography component="div" variant="subtitle2" noWrap sx={{ fontWeight: 'medium', color: '#ffb6c1' }}>
@@ -728,47 +735,6 @@ function EpisodeDetailPage() {
                   </Card>
                 ))}
               </Stack>
-            </Paper>
-
-            {/* Download Instructions */}
-            <Paper sx={{ p: 2, borderRadius: 2, boxShadow: '0 2px 10px rgba(0,0,0,0.3)', bgcolor: '#1e1e1e', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold', pb: 1, borderBottom: '2px solid #ffb6c1', color: '#ffb6c1' }}>
-                How to Download
-              </Typography>
-              <List dense>
-                <ListItem>
-                  <ListItemText 
-                    primary="Step 1: Choose your preferred quality (1080p, 720p, or 480p)"
-                    primaryTypographyProps={{ sx: { color: 'rgba(255,255,255,0.8)' } }}
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemText 
-                    primary="Step 2: Select one of the available download servers"
-                    primaryTypographyProps={{ sx: { color: 'rgba(255,255,255,0.8)' } }}
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemText 
-                    primary="Step 3: Click the download button and save the file"
-                    primaryTypographyProps={{ sx: { color: 'rgba(255,255,255,0.8)' } }}
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemText 
-                    primary="Step 4: Enjoy watching offline!"
-                    primaryTypographyProps={{ sx: { color: 'rgba(255,255,255,0.8)' } }}
-                  />
-                </ListItem>
-              </List>
-              <Alert severity="info" sx={{ mt: 2, bgcolor: 'rgba(41, 182, 246, 0.1)', color: '#81d4fa' }}>
-                <Typography variant="body2">
-                  If one server doesn't work, please try another server. All servers provide the same file.
-                </Typography>
-              </Alert>
-              <Typography variant="body2" sx={{ fontStyle: 'italic', mt: 2, color: 'rgba(255,255,255,0.5)', fontSize: '0.75rem' }}>
-                Note: This website is for educational purposes only. "Your Lie in April" and all related content belong to their respective owners.
-              </Typography>
             </Paper>
           </Grid>
         </Grid>

@@ -1,228 +1,177 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-
-// Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './contexts/AuthContext';
-
-// Pages
+import Box from '@mui/material/Box';
 import HomePage from './pages/HomePage';
-import EpisodesPage from './pages/EpisodesPage';
+import AnimePage from './pages/AnimePage';
+import AnimeDetailPage from './pages/AnimeDetailPage';
 import EpisodeDetailPage from './pages/EpisodeDetailPage';
-import AboutPage from './pages/AboutPage';
-import NotFoundPage from './pages/NotFoundPage';
-import TrendingPage from './pages/TrendingPage';
-import TopRatedPage from './pages/TopRatedPage';
-import MostWatchedPage from './pages/MostWatchedPage';
+import SearchPage from './pages/SearchPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import MoviesPage from './pages/MoviesPage';
 import SeriesPage from './pages/SeriesPage';
-import AnimeDetailPage from './pages/AnimeDetailPage';
-import LoginPage from './pages/LoginPage';
-import SearchPage from './pages/SearchPage';
-import AdminDashboardPage from './pages/admin/AdminDashboardPage';
+import TrendingPage from './pages/TrendingPage';
+import AboutPage from './pages/AboutPage';
+import NotFoundPage from './pages/NotFoundPage';
 import AdminAddAnimePage from './pages/admin/AdminAddAnimePage';
-import AdminAddEpisodePage from './pages/admin/AdminAddEpisodePage';
 
-// Create a dark theme for Your Lie in April
-const theme = createTheme({
+// Create dark theme
+const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#3f51b5', // Indigo
-      light: '#757de8',
-      dark: '#002984',
-      contrastText: '#ffffff',
+      main: '#ffb6c1',
     },
     secondary: {
-      main: '#ffb6c1', // Light pink
-      light: '#ffc8d1',
-      dark: '#ff99a8',
-      contrastText: '#000000',
+      main: '#f48fb1',
     },
     background: {
-      default: '#121212',
-      paper: '#1e1e1e',
+      default: '#0a0a0a',
+      paper: '#1a1a1a',
     },
     text: {
       primary: '#ffffff',
-      secondary: '#b0b0b0',
+      secondary: 'rgba(255, 255, 255, 0.7)',
     },
   },
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
-      fontSize: '2.5rem',
       fontWeight: 700,
     },
     h2: {
-      fontSize: '2rem',
-      fontWeight: 600,
+      fontWeight: 700,
+    },
+    h3: {
+      fontWeight: 700,
+    },
+    h4: {
+      fontWeight: 700,
     },
     h5: {
-      fontWeight: 600,
+      fontWeight: 700,
     },
     h6: {
-      fontWeight: 600,
+      fontWeight: 700,
     },
-    subtitle1: {
-      fontWeight: 600,
-    },
-    button: {
-      textTransform: 'none',
-      fontWeight: 600,
-    },
-  },
-  shape: {
-    borderRadius: 8,
   },
   components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#121212',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
-          boxShadow: '0 2px 5px rgba(0,0,0,0.3)',
-          '&:hover': {
-            boxShadow: '0 4px 10px rgba(0,0,0,0.4)',
-          },
-        },
-        containedPrimary: {
-          backgroundColor: '#3f51b5',
-          '&:hover': {
-            backgroundColor: '#303f9f',
-          },
-        },
-        containedSecondary: {
-          backgroundColor: '#ffb6c1',
-          color: '#000000',
-          '&:hover': {
-            backgroundColor: '#ff99a8',
-          },
-        },
-        outlined: {
-          borderColor: 'rgba(255, 255, 255, 0.23)',
-          '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.05)',
-          },
+          textTransform: 'none',
+          borderRadius: 8,
+          fontSize: '0.875rem',
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1e1e1e',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-          '&:hover': {
-            boxShadow: '0 4px 12px rgba(0,0,0,0.4)',
-          },
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#1e1e1e',
-        },
-      },
-    },
-    MuiTableCell: {
-      styleOverrides: {
-        root: {
-          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        },
-        head: {
-          backgroundColor: '#272727',
-        },
-      },
-    },
-    MuiTableRow: {
-      styleOverrides: {
-        root: {
-          '&:hover': {
-            backgroundColor: 'rgba(255, 255, 255, 0.05) !important',
-          },
-        },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          backgroundColor: 'rgba(255, 255, 255, 0.12)',
+          borderRadius: 12,
+          boxShadow: '0 8px 40px rgba(0, 0, 0, 0.12)',
         },
       },
     },
     MuiChip: {
       styleOverrides: {
-        outlined: {
-          borderColor: 'rgba(255, 255, 255, 0.23)',
+        root: {
+          borderRadius: 4,
         },
       },
     },
   },
 });
 
+// ScrollToTop component to handle scrolling on route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [pathname]);
+  
+  return null;
+}
+
+// Page wrapper for transition effects
+const PageWrapper = ({ children }) => {
+  return (
+    <Box
+      sx={{
+        animation: 'fadeInUp 0.5s ease-out',
+        '@keyframes fadeInUp': {
+          '0%': {
+            opacity: 0,
+            transform: 'translateY(20px)'
+          },
+          '100%': {
+            opacity: 1,
+            transform: 'translateY(0)'
+          }
+        }
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
+
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <AuthProvider>
-        <Navbar />
-        <main style={{ minHeight: 'calc(100vh - 160px)' }}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/episodes" element={<EpisodesPage />} />
-            <Route path="/episodes/:id" element={<EpisodeDetailPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/trending" element={<TrendingPage />} />
-            <Route path="/top-rated" element={<TopRatedPage />} />
-            <Route path="/most-watched" element={<MostWatchedPage />} />
-            <Route path="/movies" element={<MoviesPage />} />
-            <Route path="/series" element={<SeriesPage />} />
-            <Route path="/anime/:id" element={<AnimeDetailPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            
-            {/* Protected Admin Routes */}
-            <Route
-              path="/admin/dashboard"
-              element={
-                <ProtectedRoute>
-                  <AdminDashboardPage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/add-anime"
-              element={
-                <ProtectedRoute>
-                  <AdminAddAnimePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/add-episode"
-              element={
-                <ProtectedRoute>
-                  <AdminAddEpisodePage />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/edit-anime/:id"
-              element={
-                <ProtectedRoute>
-                  <AdminAddAnimePage />
-                </ProtectedRoute>
-              }
-            />
-            
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </AuthProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            flexDirection: 'column',
+            minHeight: '100vh',
+            overflow: 'hidden' // Prevent horizontal overflow on mobile
+          }}
+        >
+          <Header />
+          <Box 
+            component="main" 
+            sx={{ 
+              flexGrow: 1,
+              pb: { xs: 2, md: 4 },
+              // Add responsive padding to prevent content from being hidden under elements
+              pt: { xs: 0, md: 0 },
+              px: { xs: 0, md: 0 },
+              overflow: 'hidden', // Prevent content overflow
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<PageWrapper><HomePage /></PageWrapper>} />
+              <Route path="/anime" element={<PageWrapper><AnimePage /></PageWrapper>} />
+              <Route path="/anime/:id" element={<PageWrapper><AnimeDetailPage /></PageWrapper>} />
+              <Route path="/episode/:id" element={<PageWrapper><EpisodeDetailPage /></PageWrapper>} />
+              <Route path="/search" element={<PageWrapper><SearchPage /></PageWrapper>} />
+              <Route path="/movies" element={<PageWrapper><MoviesPage /></PageWrapper>} />
+              <Route path="/series" element={<PageWrapper><SeriesPage /></PageWrapper>} />
+              <Route path="/trending" element={<PageWrapper><TrendingPage /></PageWrapper>} />
+              <Route path="/about" element={<PageWrapper><AboutPage /></PageWrapper>} />
+              <Route path="/admin/add-anime" element={<PageWrapper><AdminAddAnimePage /></PageWrapper>} />
+              <Route path="*" element={<PageWrapper><NotFoundPage /></PageWrapper>} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Box>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

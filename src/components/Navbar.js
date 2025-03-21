@@ -39,46 +39,21 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CloseIcon from '@mui/icons-material/Close';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import LogoutIcon from '@mui/icons-material/Logout';
-import { useAuth } from '../contexts/AuthContext';
+import InfoIcon from '@mui/icons-material/Info';
 
 const pages = [
   { title: 'Home', path: '/', icon: <HomeIcon /> },
   { title: 'Trending', path: '/trending', icon: <TrendingUpIcon /> },
   { title: 'Movies', path: '/movies', icon: <MovieIcon /> },
   { title: 'Series', path: '/series', icon: <LiveTvIcon /> },
-  { title: 'Schedule', path: '/schedule', icon: <ScheduleIcon /> },
-];
-
-const adminPages = [
-  { title: 'Dashboard', path: '/admin/dashboard', icon: <AdminPanelSettingsIcon /> },
-  { title: 'Add Anime', path: '/admin/add-anime', icon: <MovieIcon /> },
-  { title: 'Add Episode', path: '/admin/add-episode', icon: <VideoLibraryIcon /> },
-];
-
-const userPages = [
-  { title: 'My Profile', path: '/profile' },
-  { title: 'My Watchlist', path: '/watchlist' },
-  { title: 'History', path: '/history' },
-  { title: 'Settings', path: '/settings' },
-  { title: 'Admin Panel', path: '/admin/dashboard' },
-  { title: 'Logout', path: '/logout' },
+  { title: 'About Us', path: '/about', icon: <InfoIcon /> },
 ];
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { isAuthenticated, isAdmin, logout } = useAuth();
-  const [anchorElUser, setAnchorElUser] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -94,25 +69,6 @@ function Navbar() {
   const isActive = (path) => {
     return location.pathname === path;
   };
-
-  const isAdminSection = location.pathname.startsWith('/admin');
-
-  const handleLogout = () => {
-    logout();
-    setAnchorElUser(null);
-    navigate('/');
-  };
-
-  const userMenuItems = isAuthenticated ? [
-    { title: 'My Profile', path: '/profile' },
-    { title: 'My Watchlist', path: '/watchlist' },
-    { title: 'History', path: '/history' },
-    { title: 'Settings', path: '/settings' },
-    ...(isAdmin ? [{ title: 'Admin Panel', path: '/admin/dashboard' }] : []),
-    { title: 'Logout', path: '/logout', icon: <LogoutIcon />, onClick: handleLogout },
-  ] : [
-    { title: 'Login', path: '/login' },
-  ];
 
   return (
     <AppBar position="sticky" sx={{ bgcolor: '#0a0a0a', boxShadow: 2 }}>
@@ -175,29 +131,6 @@ function Navbar() {
                 {page.title}
               </Button>
             ))}
-            
-            {/* Admin Quick Link */}
-            <Button
-              component={RouterLink}
-              to="/admin/dashboard"
-              sx={{
-                my: 2,
-                color: isAdminSection ? '#ffb6c1' : '#aaa',
-                display: 'flex',
-                alignItems: 'center',
-                fontWeight: isAdminSection ? 'bold' : 'normal',
-                borderBottom: isAdminSection ? '2px solid #ffb6c1' : 'none',
-                borderRadius: 0,
-                '&:hover': {
-                  color: '#ffb6c1',
-                  bgcolor: 'transparent',
-                },
-                mx: 0.5,
-              }}
-            >
-              <AdminPanelSettingsIcon sx={{ mr: 0.5 }} />
-              Admin
-            </Button>
           </Box>
 
           {/* Search Bar */}
@@ -231,52 +164,6 @@ function Navbar() {
               }}
             />
           </Box>
-
-          {/* User Menu */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title={isAuthenticated ? "Open settings" : "Login"}>
-              <IconButton
-                onClick={handleOpenUserMenu}
-                sx={{ p: 0 }}
-              >
-                <Avatar sx={{ bgcolor: '#ffb6c1', color: '#000' }}>
-                  {isAuthenticated ? 'U' : 'L'}
-                </Avatar>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {userMenuItems.map((item) => (
-                <MenuItem 
-                  key={item.title} 
-                  onClick={item.onClick || handleCloseUserMenu}
-                  sx={{
-                    color: 'white',
-                    '&:hover': {
-                      bgcolor: 'rgba(255, 255, 255, 0.1)',
-                    },
-                  }}
-                >
-                  {item.icon && <Box sx={{ mr: 1 }}>{item.icon}</Box>}
-                  <Typography textAlign="center">{item.title}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
         </Toolbar>
       </Container>
       
@@ -307,7 +194,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            YourLie
+            AnimeHindiHub
           </Typography>
           <IconButton onClick={handleDrawerToggle}>
             <CloseIcon />
@@ -335,12 +222,12 @@ function Navbar() {
         <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />
         
         <List>
-          {userMenuItems.map((item) => (
-            <ListItem key={item.title} disablePadding onClick={item.onClick || handleDrawerToggle}>
+          {pages.map((page) => (
+            <ListItem key={page.title} disablePadding onClick={handleDrawerToggle}>
               <ListItemButton
-                component={item.onClick ? 'div' : RouterLink}
-                to={item.onClick ? undefined : item.path}
-                selected={isActive(item.path)}
+                component={RouterLink}
+                to={page.path}
+                selected={isActive(page.path)}
                 sx={{
                   '&.Mui-selected': {
                     bgcolor: 'rgba(255, 182, 193, 0.1)',
@@ -353,15 +240,15 @@ function Navbar() {
                   },
                 }}
               >
-                <ListItemIcon sx={{ color: isActive(item.path) ? '#ffb6c1' : 'white', minWidth: 40 }}>
-                  {item.icon}
+                <ListItemIcon sx={{ color: isActive(page.path) ? '#ffb6c1' : 'white', minWidth: 40 }}>
+                  {page.icon}
                 </ListItemIcon>
                 <ListItemText 
-                  primary={item.title} 
+                  primary={page.title} 
                   sx={{ 
                     '& .MuiListItemText-primary': { 
-                      color: isActive(item.path) ? '#ffb6c1' : 'white',
-                      fontWeight: isActive(item.path) ? 'bold' : 'normal',
+                      color: isActive(page.path) ? '#ffb6c1' : 'white',
+                      fontWeight: isActive(page.path) ? 'bold' : 'normal',
                     } 
                   }} 
                 />

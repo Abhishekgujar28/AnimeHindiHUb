@@ -19,12 +19,12 @@ import {
 import DownloadIcon from '@mui/icons-material/Download';
 import ServerIcon from '@mui/icons-material/Dns';
 import SpeedIcon from '@mui/icons-material/Speed';
+import HdIcon from '@mui/icons-material/Hd';
 
 const qualities = [
-  { label: '1080p', value: '1080' },
-  { label: '720p', value: '720' },
-  { label: '480p', value: '480' },
-  { label: '360p', value: '360' },
+  { label: '1080p', value: '1080', icon: <HdIcon sx={{ color: '#4CAF50' }} /> },
+  { label: '720p', value: '720', icon: <HdIcon sx={{ color: '#2196F3' }} /> },
+  { label: '480p', value: '480', icon: <HdIcon sx={{ color: '#FFC107' }} /> },
 ];
 
 const servers = [
@@ -74,10 +74,10 @@ function TabPanel(props) {
   );
 }
 
-function DownloadDialog({ open, onClose, animeTitle, episodeNumber }) {
+function DownloadDialog({ open, onClose, animeTitle, episodeNumber, quality, downloadUrl }) {
   const [tabValue, setTabValue] = useState(0);
-  const [selectedQuality, setSelectedQuality] = useState('1080');
-  const [selectedServer, setSelectedServer] = useState(null);
+  const [selectedQuality, setSelectedQuality] = useState(quality ? quality.replace('p', '') : '1080');
+  const [selectedServer, setSelectedServer] = useState(servers[0]); // Default to first server
   const [downloading, setDownloading] = useState(false);
 
   const handleTabChange = (event, newValue) => {
@@ -92,6 +92,12 @@ function DownloadDialog({ open, onClose, animeTitle, episodeNumber }) {
     setSelectedServer(server);
   };
 
+  const handleDirectDownload = () => {
+    if (downloadUrl) {
+      window.open(downloadUrl, '_blank');
+    }
+  };
+
   const handleDownload = async () => {
     if (!selectedServer) return;
     
@@ -99,8 +105,14 @@ function DownloadDialog({ open, onClose, animeTitle, episodeNumber }) {
     try {
       // Simulate download
       await new Promise(resolve => setTimeout(resolve, 2000));
+      
       // In a real app, this would trigger the actual download
       console.log(`Downloading ${animeTitle} Episode ${episodeNumber} in ${selectedQuality}p from ${selectedServer.name}`);
+      
+      // If we have a direct download URL from the props, use it
+      if (downloadUrl) {
+        window.open(downloadUrl, '_blank');
+      }
     } catch (error) {
       console.error('Download failed:', error);
     } finally {
@@ -163,9 +175,12 @@ function DownloadDialog({ open, onClose, animeTitle, episodeNumber }) {
                     },
                   }}
                 >
+                  <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
+                    {quality.icon}
+                  </Box>
                   <ListItemText 
                     primary={quality.label}
-                    secondary={`Best quality for ${quality.value}p displays`}
+                    secondary={`Best for ${quality.value === '1080' ? 'high-end' : quality.value === '720' ? 'mid-range' : 'low-end'} devices`}
                   />
                   {selectedQuality === quality.value && (
                     <Chip 
@@ -242,6 +257,24 @@ function DownloadDialog({ open, onClose, animeTitle, episodeNumber }) {
         >
           Cancel
         </Button>
+        
+        {downloadUrl && (
+          <Button
+            variant="contained"
+            startIcon={<DownloadIcon />}
+            onClick={handleDirectDownload}
+            sx={{
+              bgcolor: '#4CAF50',
+              color: '#fff',
+              '&:hover': {
+                bgcolor: '#45a049',
+              },
+            }}
+          >
+            Direct Download
+          </Button>
+        )}
+        
         <Button
           variant="contained"
           startIcon={downloading ? <CircularProgress size={20} /> : <DownloadIcon />}
