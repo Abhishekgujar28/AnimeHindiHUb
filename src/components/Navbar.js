@@ -12,8 +12,6 @@ import {
   Button,
   Tooltip,
   MenuItem,
-  TextField,
-  InputAdornment,
   Drawer,
   List,
   ListItem,
@@ -24,7 +22,6 @@ import {
   Badge,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HomeIcon from '@mui/icons-material/Home';
@@ -53,17 +50,9 @@ function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
-  };
-
-  const handleSearch = (e) => {
-    if (e.key === 'Enter' && searchValue.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchValue)}`);
-      setSearchValue('');
-    }
   };
 
   const isActive = (path) => {
@@ -132,38 +121,6 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-
-          {/* Search Bar */}
-          <Box sx={{ display: 'flex', flexGrow: { xs: 1, md: 0 }, mr: { xs: 1, md: 2 } }}>
-            <TextField
-              size="small"
-              placeholder="Search anime..."
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-              onKeyDown={handleSearch}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon sx={{ color: 'text.secondary' }} />
-                  </InputAdornment>
-                ),
-                sx: {
-                  bgcolor: 'rgba(255, 255, 255, 0.05)',
-                  borderRadius: 1,
-                  '& .MuiOutlinedInput-notchedOutline': {
-                    borderColor: 'rgba(255, 255, 255, 0.1)',
-                  },
-                  '&:hover .MuiOutlinedInput-notchedOutline': {
-                    borderColor: 'rgba(255, 255, 255, 0.2)',
-                  },
-                }
-              }}
-              sx={{ 
-                display: { xs: 'none', sm: 'block' },
-                width: { sm: 200, md: 250 },
-              }}
-            />
-          </Box>
         </Toolbar>
       </Container>
       
@@ -199,24 +156,6 @@ function Navbar() {
           <IconButton onClick={handleDrawerToggle}>
             <CloseIcon />
           </IconButton>
-        </Box>
-        
-        <Box sx={{ p: 2 }}>
-          <TextField
-            fullWidth
-            size="small"
-            placeholder="Search anime..."
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-            onKeyDown={handleSearch}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon sx={{ color: 'text.secondary' }} />
-                </InputAdornment>
-              ),
-            }}
-          />
         </Box>
         
         <Divider sx={{ borderColor: 'rgba(255,255,255,0.1)' }} />

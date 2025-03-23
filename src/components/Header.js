@@ -16,10 +16,6 @@ import {
   useMediaQuery,
   useTheme,
   Stack,
-  InputBase,
-  alpha,
-  TextField,
-  InputAdornment,
   Avatar,
   Menu,
   MenuItem,
@@ -29,7 +25,6 @@ import HomeIcon from '@mui/icons-material/Home';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import MovieIcon from '@mui/icons-material/Movie';
 import TvIcon from '@mui/icons-material/Tv';
-import SearchIcon from '@mui/icons-material/Search';
 import InfoIcon from '@mui/icons-material/Info';
 import ExploreIcon from '@mui/icons-material/Explore';
 import PersonIcon from '@mui/icons-material/Person';
@@ -43,48 +38,10 @@ const Header = () => {
   const navigate = useNavigate();
   
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [profileAnchorEl, setProfileAnchorEl] = useState(null);
   
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
-  };
-  
-  const handleOpenSearch = () => {
-    setSearchOpen(true);
-  };
-  
-  const handleCloseSearch = () => {
-    setSearchOpen(false);
-    setSearchQuery('');
-  };
-  
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-  
-  const handleSearch = (event) => {
-    event.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/anime?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchQuery('');
-      handleCloseSearch();
-    }
-  };
-  
-  const toggleMobileSearchOpen = () => {
-    setMobileSearchOpen(!mobileSearchOpen);
-  };
-  
-  const handleMobileSearch = (event) => {
-    event.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/anime?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchQuery('');
-      handleCloseSearch();
-    }
   };
   
   const handleProfileMenuOpen = (event) => {
@@ -255,62 +212,6 @@ const Header = () => {
               About
             </Button>
           </Stack>
-        )}
-        
-        {searchOpen ? (
-          <Box 
-            component="form" 
-            onSubmit={handleSearch}
-            sx={{
-              position: 'relative',
-              borderRadius: 1,
-              backgroundColor: alpha('#fff', 0.15),
-              '&:hover': {
-                backgroundColor: alpha('#fff', 0.25),
-              },
-              marginRight: 2,
-              marginLeft: 0,
-              width: '100%',
-              display: 'flex',
-              [theme => theme.breakpoints.up('sm')]: {
-                marginLeft: 3,
-                width: 'auto',
-              },
-            }}
-          >
-            <InputBase
-              placeholder="Search…"
-              value={searchQuery}
-              onChange={handleSearchChange}
-              autoFocus
-              sx={{
-                color: 'inherit',
-                '& .MuiInputBase-input': {
-                  padding: '8px 8px 8px 0',
-                  paddingLeft: `calc(1em + ${8}px)`,
-                  transition: theme => theme.transitions.create('width'),
-                  width: '100%',
-                  [theme => theme.breakpoints.up('md')]: {
-                    width: '20ch',
-                  },
-                },
-              }}
-            />
-            <Button type="submit" sx={{ color: 'white' }}>
-              <SearchIcon />
-            </Button>
-            <Button onClick={handleCloseSearch} sx={{ color: 'white' }}>
-              Cancel
-            </Button>
-          </Box>
-        ) : (
-          <IconButton
-            color="inherit"
-            edge="end"
-            onClick={handleOpenSearch}
-          >
-            <SearchIcon />
-          </IconButton>
         )}
       </Toolbar>
       

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,6 +16,7 @@ import TrendingPage from './pages/TrendingPage';
 import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
 import AdminAddAnimePage from './pages/admin/AdminAddAnimePage';
+import WelcomeCard from './components/WelcomeCard';
 
 // Create dark theme
 const darkTheme = createTheme({
@@ -130,6 +131,24 @@ const PageWrapper = ({ children }) => {
 };
 
 function App() {
+  const [showWelcome, setShowWelcome] = useState(false);
+
+  useEffect(() => {
+    // Check if welcome card has been shown in this session
+    const hasSeenWelcomeInSession = sessionStorage.getItem('hasSeenWelcomeInSession');
+    
+    if (!hasSeenWelcomeInSession) {
+      // Show welcome card only if not seen in this session
+      setShowWelcome(true);
+    }
+  }, []);
+
+  const handleCloseWelcome = () => {
+    setShowWelcome(false);
+    // Mark that welcome has been shown in this session
+    sessionStorage.setItem('hasSeenWelcomeInSession', 'true');
+  };
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
@@ -171,6 +190,7 @@ function App() {
           </Box>
           <Footer />
         </Box>
+        {showWelcome && <WelcomeCard onClose={handleCloseWelcome} />}
       </BrowserRouter>
     </ThemeProvider>
   );

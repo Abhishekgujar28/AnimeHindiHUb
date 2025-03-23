@@ -1,113 +1,143 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Button,
+import React from 'react';
+import { 
+  Box, 
+  Card, 
+  CardContent, 
+  Typography, 
+  Button, 
   IconButton,
-  Link,
-  useMediaQuery,
-  Slide,
+  CardMedia,
+  Link
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import TelegramIcon from '@mui/icons-material/Telegram';
-import { useTheme } from '@mui/material/styles';
 
-const WelcomeCard = () => {
-  const [open, setOpen] = useState(false);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-  useEffect(() => {
-    // Check if the user has seen the card before
-    const hasSeenWelcome = localStorage.getItem('hasSeenWelcome');
-    
-    if (!hasSeenWelcome) {
-      // Show the card after a short delay
-      const timer = setTimeout(() => {
-        setOpen(true);
-      }, 1000);
-      
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleClose = () => {
-    setOpen(false);
-    // Set flag in localStorage to remember the user has seen the card
-    localStorage.setItem('hasSeenWelcome', 'true');
-  };
-
-  if (!open) return null;
-
+function WelcomeCard({ onClose }) {
   return (
-    <Slide direction="up" in={open} mountOnEnter unmountOnExit>
-      <Box
-        sx={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
+    <Box
+      sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'rgba(0, 0, 0, 0.7)',
+        zIndex: 9999,
+        backdropFilter: 'blur(5px)',
+        p: 2
+      }}
+    >
+      <Card 
+        sx={{ 
+          maxWidth: 500, 
           width: '100%',
-          zIndex: 1000,
-          p: 2,
+          borderRadius: 3,
+          overflow: 'hidden',
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+          position: 'relative',
+          animation: 'fadeInUp 0.6s ease-out',
+          '@keyframes fadeInUp': {
+            '0%': {
+              opacity: 0,
+              transform: 'translateY(30px) scale(0.95)'
+            },
+            '100%': {
+              opacity: 1,
+              transform: 'translateY(0) scale(1)'
+            }
+          }
         }}
       >
-        <Card
-          sx={{
-            maxWidth: '100%',
-            mx: 'auto',
-            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.25)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: 2,
-            bgcolor: 'background.paper',
+        <IconButton 
+          sx={{ 
+            position: 'absolute', 
+            top: 8, 
+            right: 8, 
+            bgcolor: 'rgba(0,0,0,0.5)',
+            color: 'white',
+            '&:hover': {
+              bgcolor: 'rgba(255,255,255,0.2)',
+            }
           }}
+          onClick={onClose}
         >
-          <CardContent sx={{ position: 'relative', p: 3 }}>
-            <IconButton
-              onClick={handleClose}
-              sx={{
-                position: 'absolute',
-                top: 8,
-                right: 8,
-                color: 'text.secondary',
+          <CloseIcon />
+        </IconButton>
+        
+        <CardMedia
+          component="img"
+          height="180"
+          image="/welcome-banner.jpg"
+          alt="Welcome to AnimeHindiHub"
+          sx={{ 
+            objectFit: 'cover',
+            objectPosition: 'center',
+            backgroundColor: '#ffb6c1',
+            // dislplay:'none'
+            display: { xs: 'none', sm: 'block' }
+          }}
+        />
+        
+        <CardContent sx={{ p: 3 }}>
+          <Typography 
+            variant="h4" 
+            component="h1" 
+            gutterBottom 
+            sx={{ 
+              fontWeight: 'bold',
+              color: '#ffb6c1',
+              textAlign: 'center',
+              mb: 2,
+              fontSize: { xs: '1.5rem', sm: '2rem' }
+            }}
+          >
+            Welcome to AnimeHindiHub
+          </Typography>
+          
+          <Typography 
+            variant="body1" 
+            paragraph 
+            sx={{ 
+              textAlign: 'center',
+              mb: 3
+            }}
+          >
+            Your ultimate destination for Hindi dubbed anime movies and series. 
+            Find your favorite anime content in high quality with Hindi audio!
+          </Typography>
+          
+          <Box sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+            <Button
+              variant="contained"
+              size="large"
+              component={Link}
+              href="https://t.me/Animehindi_Hub4all"
+              target="_blank"
+              rel="noopener"
+              startIcon={<TelegramIcon />}
+              sx={{ 
+                bgcolor: '#0088cc',
+                color: '#fff',
+                fontWeight: 'bold',
+                px: 4,
+                py: 1.5,
+                fontSize: '1rem',
+                '&:hover': {
+                  bgcolor: '#0077b5',
+                },
+                borderRadius: 2
               }}
             >
-              <CloseIcon />
-            </IconButton>
-            
-            <Typography variant="h5" component="h2" gutterBottom sx={{ fontWeight: 'bold', pr: 4 }}>
-              Welcome to AnimeHindiHub!
-            </Typography>
-            
-            <Typography variant="body1" sx={{ mb: 3 }}>
-              Your #1 source for Hindi dubbed anime. Get the latest updates and exclusive content by following our Telegram channel!
-            </Typography>
-            
-            <Box sx={{ display: 'flex', justifyContent: isMobile ? 'center' : 'flex-start' }}>
-              <Button
-                variant="contained"
-                startIcon={<TelegramIcon />}
-                component={Link}
-                href="https://t.me/animehindihub"
-                target="_blank"
-                rel="noopener"
-                sx={{
-                  bgcolor: '#0088cc',
-                  '&:hover': {
-                    bgcolor: '#006699',
-                  },
-                  px: 3,
-                }}
-              >
-                Follow on Telegram
-              </Button>
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
-    </Slide>
+              Follow on Telegram
+            </Button>
+          </Box>
+        </CardContent>
+      </Card>
+    </Box>
   );
-};
+}
 
 export default WelcomeCard; 

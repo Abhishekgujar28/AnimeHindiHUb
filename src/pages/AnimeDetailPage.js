@@ -268,7 +268,7 @@ function AnimeDetailPage() {
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                   <MovieIcon sx={{ color: '#ffb6c1', mr: 0.5, fontSize: { xs: '1rem', sm: '1.25rem' } }} />
                   <Typography variant="body1" sx={{ fontSize: { xs: '0.75rem', sm: '0.9rem' } }}>
-                    {anime.episodes} Episodes
+                    {anime.type === 'Movie' ? 'Movie' : `${anime.episodes} Episodes`}
                   </Typography>
                 </Box>
                 
@@ -392,7 +392,7 @@ function AnimeDetailPage() {
                 }}
               />
               <Tab 
-                label="Episodes" 
+                label={anime.type === 'Movie' ? 'Movie' : 'Episodes'} 
                 id="episodes-tab"
                 sx={{ 
                   color: 'white',
@@ -449,7 +449,9 @@ function AnimeDetailPage() {
                             
                             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
                               <Typography variant="body2" color="text.secondary" sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}>Episodes</Typography>
-                              <Typography variant="body2" fontWeight="bold" sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}>{anime.episodes}</Typography>
+                              <Typography variant="body2" fontWeight="bold" sx={{ fontSize: { xs: '0.8rem', sm: '0.875rem' } }}>
+                                {anime.type === 'Movie' ? 'Movie' : anime.episodes}
+                              </Typography>
                             </Box>
                             <Divider sx={{ borderColor: 'rgba(255, 255, 255, 0.1)' }} />
                             
@@ -531,7 +533,7 @@ function AnimeDetailPage() {
                     <Divider sx={{ my: 2, borderColor: 'rgba(255, 255, 255, 0.1)' }} />
                     
                     <Typography variant="body2" paragraph sx={{ mb: 2 }}>
-                      All episodes available for download in high quality
+                      {anime.type === 'Movie' ? 'Movie available for download in high quality' : 'All episodes available for download in high quality'}
                     </Typography>
                     
                     <Button
@@ -554,7 +556,7 @@ function AnimeDetailPage() {
                         });
                       }}
                     >
-                      Download All Episodes
+                      {anime.type === 'Movie' ? 'Download Movie' : 'Download All Episodes'}
                     </Button>
                   </Paper>
                 </Grid>
@@ -574,15 +576,15 @@ function AnimeDetailPage() {
                 {episodes.length === 0 ? (
                   <Box sx={{ p: 4, textAlign: 'center' }}>
                     <Typography variant="h6" color="text.secondary">
-                      No episodes available
-                    </Typography>
+                      {anime.type === 'Movie' ? 'Movie will be available soon' : 'No episodes available'}
+                  </Typography>
                   </Box>
                 ) : (
                   <Grid container spacing={2}>
                     {episodes.map((episode) => (
                       <Grid item xs={12} sm={6} md={4} key={episode.id || episode.number}>
                         <Card 
-                          sx={{ 
+                    sx={{ 
                             bgcolor: '#1e1e1e', 
                             borderRadius: 2,
                             overflow: 'hidden',
@@ -593,26 +595,26 @@ function AnimeDetailPage() {
                           }}
                         >
                           <Box
-                            sx={{
+                    sx={{ 
                               position: 'relative',
                               pt: '56.25%', // 16:9 aspect ratio
                             }}
                           >
-                            <CardMedia
-                              component="img"
+                        <CardMedia
+                          component="img"
                               image={episode.thumbnail || anime.cover}
                               alt={`Episode ${episode.number}`}
-                              sx={{
+                          sx={{
                                 position: 'absolute',
                                 top: 0,
                                 left: 0,
                                 width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                              }}
-                            />
-                            <Box 
-                              sx={{ 
+                            height: '100%',
+                            objectFit: 'cover',
+                          }}
+                        />
+                          <Box 
+                            sx={{ 
                                 position: 'absolute',
                                 top: 10,
                                 left: 10,
@@ -637,8 +639,8 @@ function AnimeDetailPage() {
                               textOverflow: 'ellipsis'
                             }}>
                               {episode.title || `Episode ${episode.number}`}
-                            </Typography>
-                            
+                          </Typography>
+                          
                             <Typography variant="body2" sx={{ 
                               color: 'text.secondary', 
                               mb: 1.5,
@@ -699,18 +701,18 @@ function AnimeDetailPage() {
                               >
                                 720p
                               </Button>
-                        
-                              <Button 
+                            
+                            <Button 
                                 variant="contained"
                                 size="small"
                                 startIcon={<DownloadIcon sx={{ fontSize: '0.85rem' }} />}
-                                sx={{ 
+                              sx={{ 
                                   bgcolor: '#FFC107',
                                   color: '#000',
                                   fontWeight: 'bold',
                                   fontSize: '0.7rem',
                                   py: 0.5,
-                                  '&:hover': {
+                                '&:hover': {
                                     bgcolor: '#e0aa00',
                                   },
                                   flex: 1
@@ -718,13 +720,13 @@ function AnimeDetailPage() {
                                 onClick={() => handleDownloadClick({ ...episode, quality: '480p' })}
                               >
                                 480p
-                              </Button>
+                            </Button>
                             </Box>
                           </CardActions>
                         </Card>
                       </Grid>
                     ))}
-                  </Grid>
+                    </Grid>
                 )}
               </Box>
             )}

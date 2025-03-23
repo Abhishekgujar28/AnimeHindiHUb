@@ -26,8 +26,10 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import QrCodeIcon from '@mui/icons-material/QrCode';
 import EmailIcon from '@mui/icons-material/Email';
 import InstagramIcon from '@mui/icons-material/Instagram';
-// Replace with actual QR code image path
-const QRCode = "./src/assets/QR.jpg";
+// Import the actual QR code from assets folder
+import QRCode from '../assets/qrcode.jpg';
+// Remove the placeholder QR code URL
+// const QRCode = "https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg";
 
 function AboutPage() {
   return (
@@ -168,7 +170,7 @@ function AboutPage() {
             
             <Button
               variant="contained"
-              href="https://t.me/animehindhub"
+              href="https://t.me/Animehindi_Hub4all"
               target="_blank" 
               rel="noopener"
               startIcon={<TelegramIcon />}
@@ -304,41 +306,58 @@ function AboutPage() {
             <Grid item xs={12} md={5} sx={{ textAlign: 'center' }}>
               <Card 
                 sx={{ 
-                  maxWidth: 280, 
+                  maxWidth: 300, 
                   mx: 'auto', 
-                  bgcolor: 'white', 
-                  p: 2, 
-                  boxShadow: 3,
+                  bgcolor: '#ffffff', 
+                  p: 3, 
+                  boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                   position: 'relative',
                   overflow: 'hidden',
+                  borderRadius: 2,
+                  border: '1px solid rgba(0,0,0,0.08)',
                 }}
               >
-                <Box sx={{ position: 'relative' }}>
+                <Typography 
+                  variant="h6" 
+                  component="div" 
+                  sx={{ 
+                    mb: 2, 
+                    color: '#000', 
+                    fontWeight: 'bold',
+                    textAlign: 'center',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <QrCodeIcon sx={{ mr: 1, color: '#e91e63' }} />
+                  Donate Via UPI
+                </Typography>
+                
+                <Box 
+                  sx={{ 
+                    position: 'relative',
+                    border: '1px solid rgba(0,0,0,0.08)',
+                    p: 2,
+                    borderRadius: 1,
+                    mb: 2,
+                    bgcolor: '#f8f8f8',
+                  }}
+                >
                   <CardMedia
                     component="img"
                     image={QRCode}
                     alt="Donation QR Code"
-                    sx={{ width: '100%', height: 'auto' }}
-                  />
-                  
-                  <Box 
                     sx={{ 
-                      position: 'absolute', 
-                      top: 0, 
-                      left: 0, 
                       width: '100%', 
-                      height: '100%', 
-                      bgcolor: 'rgba(255,255,255,0.1)', 
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      height: 'auto',
+                      objectFit: 'contain',
+                      borderRadius: 1,
                     }}
-                  >
-                    <QrCodeIcon sx={{ fontSize: 60, color: 'rgba(0,0,0,0.1)' }} />
-                  </Box>
+                  />
                 </Box>
                 
-                <Box sx={{ mt: 2, textAlign: 'center' }}>
+                <Box sx={{ textAlign: 'center' }}>
                   <Typography variant="subtitle1" sx={{ color: '#000', fontWeight: 'bold' }}>
                     Scan to Donate
                   </Typography>
