@@ -11,7 +11,7 @@ import {
   Stack,
 } from '@mui/material';
 import TelegramIcon from '@mui/icons-material/Telegram';
- 
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,8 +28,26 @@ function Footer() {
               Your ultimate destination for high-quality anime streaming and downloads.
             </Typography>
             <Stack direction="row" spacing={1}>
-              <IconButton size="small" sx={{ color: '#0088cc' }}>
+              <IconButton 
+                size="small" 
+                sx={{ color: '#0088cc' }}
+                component="a"
+                href="https://t.me/Animehindi_Hub4all"
+                target="_blank"
+                rel="noopener"
+              >
                 <TelegramIcon />
+              </IconButton>
+              
+              <IconButton 
+                size="medium" 
+                sx={{ color: '#e1306c' }}
+                component="a"
+                href="https://www.instagram.com/animaxhindistudio?igsh=MTE3M2MybWk5NGJzOA=="
+                target="_blank"
+                rel="noopener"
+              >
+                <InstagramIcon />
               </IconButton>
             </Stack>
           </Grid>
